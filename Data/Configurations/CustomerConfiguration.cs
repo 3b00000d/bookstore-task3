@@ -8,7 +8,7 @@ namespace BookStore.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            // بنعمل Index على عمود الإيميل ونقوله إنه لازم يكون Unique (فريد ميتكررش)
+           
             builder.HasIndex(c => c.Email).IsUnique();
         }
     }

@@ -18,12 +18,12 @@ namespace BookStore.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // السطور دي هي الحل للإيرور: بتعرف الـ EF Core الكلاسات اللي بتورث من Book
+           
             modelBuilder.Entity<Audiobook>();
             modelBuilder.Entity<EbookBook>();
             modelBuilder.Entity<PaperbackBook>();
 
-            // قراءة الشروط والـ Configurations
+            
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BookStoreDbContext).Assembly);
         }
     }

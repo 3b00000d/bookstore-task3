@@ -11,7 +11,7 @@ public class BookStoreService
 {
     private readonly object _lock = new();
 
-    // مش هنعمل new() هنا، هنستقبلهم في الـ Constructor
+   
     public Repository<Book> BookRepo { get; }
     public Repository<Customer> CustomerRepo { get; }
     public Repository<Purchase> PurchaseRepo { get; }
@@ -47,7 +47,7 @@ public class BookStoreService
 
     public bool RemoveBook(int id)
     {
-        // بنجيب الكتاب الأول من الداتابيز، لو موجود بنمسحه
+        
         var book = BookRepo.GetAll().FirstOrDefault(b => b.Id == id);
         if (book != null)
         {
@@ -124,8 +124,7 @@ public class BookStoreService
                 Total = total
             };
 
-            // لما بنعمل Add لعملية الشراء، EF Core ذكي كفاية وإنه يحفظ التعديلات اللي حصلت فوق في الكتب والعميل كمان!
-            PurchaseRepo.Add(purchase);
+           
             return purchase;
         }
     }
@@ -135,7 +134,7 @@ public class BookStoreService
         foreach (var book in books)
         {
             rule(book);
-            BookRepo.Update(book); // بنعمل Update عشان الـ Discount يسمع في الداتابيز
+            BookRepo.Update(book); 
         }
     }
 
@@ -158,5 +157,5 @@ public class BookStoreService
             .FirstOrDefault();
     }
 
-    // تم حذف LoadData لأننا مبقناش بنقرا من فايلات خلاص
+    
 }

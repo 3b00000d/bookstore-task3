@@ -7,15 +7,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// 1. فتح اتصال بقاعدة البيانات
+
 using var context = new BookStoreDbContext();
 
-// 2. تجهيز الـ Repositories وربطها بالـ DbContext
+
 var bookRepo = new Repository<Book>(context);
 var customerRepo = new Repository<Customer>(context);
 var purchaseRepo = new Repository<Purchase>(context);
 
-// 3. تجهيز الـ Service وتمرير الـ Repositories ليها
+
 var service = new BookStoreService(bookRepo, customerRepo, purchaseRepo);
 
 service.OnBookOutOfStock += book =>
